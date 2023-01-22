@@ -1,4 +1,23 @@
 /*********************************************
+ * COMMON
+ *********************************************/
+ .reveal .h {
+    text-align: start;
+}
+
+.reveal h2 {
+    color: #002b36;
+}
+
+.reveal .colored__text {
+    color: #FFA500;
+}
+
+.reveal pre {
+    margin: 0;
+}
+
+/*********************************************
  * MAIN SLIDE
  *********************************************/
 .reveal .main {
@@ -38,12 +57,60 @@
 .reveal .main__header_rss {
     padding: 5px;
     color: #002b36;
-    border: 1px solid #FFA500;
+    border: 3px solid #FFA500;
     border-radius: 5px;
 }
 
 .reveal .main__header_rss:hover {
     padding: 5px;
     color: #002b36;
-    border: 1px solid #FFA500;
+    border: 3px solid #FFA500;
+}
+
+/*********************************************
+ * FIRST SLIDE
+ *********************************************/
+
+ .reveal .first__top {
+    display: flex;
+    gap: 30px;
+}
+
+.reveal .first__column {
+    flex-direction: column;
+}
+
+.reveal .first__bottom {
+    display: flex;
+    justify-content: flex-start;
+    text-align: start;
+}
+
+.reveal .first__bycicle_img {
+    min-width: 200px;
+    height: 200px;
+    background-image: url(../assets/velo.gif.gif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 3px solid #268bd2;
+    border-radius: 15px;
+}
+
+.reveal .first__text {
+    text-align: start;
+}
+
+.reveal .first__coding_container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.reveal .first__code {
+    width: 48%;
+}
+
+.reveal pre {
+    margin: 0;
 }
