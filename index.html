@@ -172,7 +172,7 @@
 					<section>
 						<div class="main">
 							<h2 class="r-fit-text h">DEEPCLONE</h2>
-							<span class="first__text"><span class="colored__text">_deepClone</span> work with all types, function and Symbol are copied by reference.</span>
+							<span class="first__text"><span class="colored__text">deepClone</span> work with all types, function and Symbol are copied by reference.</span>
 							<div class="third__code">
 								<pre><code data-trim data-noescape>
 									import cloneDeep from 'lodash.clonedeep'
@@ -189,6 +189,101 @@
 								</code></pre>
 							</div>
 							<span class="first__text">You can study the <a href="https://github.com/lodash/lodash/blob/4.17.15/lodash.js#L2620">source code</a> of the deep copy function.</span>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-tex h">Memoize</h2>
+							<span class="first__text"><a href="https://lodash.com/docs/4.17.15#memoize">Memoize</a> lets you <span class="colored__text">cache the results</span> of a function for the same arguments.</span>
+							<div class="fourth__code">
+								<pre><code data-trim data-noescape>
+									import memoize from "lodash.memoize";
+
+									function add(a, b) {
+										console.log("Add called with ", a, b);
+										return a + b;
+									}
+									  
+									const adder = memoize(add);
+								</code></pre>
+							</div>
+							<span class="first__text">But memoize <span class="colored__text">uses the first argument</span> to create the key to the cache. If the method you want to memoize takes more than one argument, the additional ones would get ignored.</span>
+						</div>
+					</section>
+  					<section>
+						<div class="main">
+							<h2 class="r-fit-text h">Memoize</h2>
+							<span class="first__text">To fix this problem, you can pass a resolver to memoize.</span>
+							<div class="third__code">
+								<pre><code data-trim data-noescape>
+									import memoize from "lodash.memoize";
+									import values from "lodash.values";
+
+									function add(a, b) {
+										console.log("Add called with ", a, b);
+										return a + b;
+									}
+									  
+									const adder = memoize(add, (...args) => values(args).join("_"));
+								</code></pre>
+							</div>
+							<span class="first__text"><b>NOTE:</b>values is the Lodash <a href="https://lodash.com/docs/4.17.15#values">values</a> method.</span>
+							<span class="first__text">The resolver takes all the arguments and concatenates them to create a <span class="colored__text">unique string</span>. Now, anytime that same unique set of arguments is used, memoize wil return the cached result.</span>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-tex h">Debounce</h2>
+							<span class="first__text"><a href="https://lodash.com/docs/4.17.15#debounce">Debounce</a> function returns a debounced function that when called will execute a function after X milliseconds pass since its last execution.</span>
+							<div class="fifth__code">
+								<pre><code data-trim data-noescape>
+									import debounce from 'lodash/debounce';
+
+									const debounced = debounce(() => {
+										console.log('Debounced after 500ms!');
+									}, 500);
+
+									window.addEventListener('resize', debounced);
+								</code></pre>
+							</div>
+							<span class="first__text">Debouncing is best suited when the result of the last event (for example, when resizing a window) <span class="colored__text">matters to the end user.</span></span>						</div>
+					</section>
+  					<section>
+						<div class="main">
+							<h2 class="r-fit-tex h">Throttle</h2>
+							<span class="first__text"><a href="https://lodash.com/docs/4.17.15#throttle">Throttle</a> creates a throttled function that only invokes the passed function at most once per every interval, specified in milliseconds.</span>
+							<div class="fifth__code">
+								<pre><code data-trim data-noescape>
+									import throttle from 'lodash/throttle';
+
+								const throttled = throttle(() => {
+									console.log('Throttled after 50ms!');
+								}, 50);
+
+								window.addEventListener('resize', throttled);
+								</code></pre>
+							</div>
+							<span class="first__text">Trottling is most effective when the input data for a function call <span class="colored__text">does not matter or is the same every time</span> (for example, the scroll event).</span>
+						</div>
+					</section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-tex h">Visual difference</h2>
+							<span class="first__text">The most schematic representation of the differences between Debounce and Throttle.</span>
+							<div class="fifth__top">
+								<div class="fifth__list_container">
+									<span class="colored__text">Debounce</span>
+									<div class="fifth__debounce_img"></div>
+								</div>
+								<div class="fifth__list_container">
+									<span class="colored__text">Throttle</span>
+									<div class="fifth__throttle_img"></div>
+								</div>
+							</div>
 						</div>
 					</section>
 				</section>
