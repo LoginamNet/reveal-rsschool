@@ -13,10 +13,6 @@
     color: #FFA500;
 }
 
-.reveal pre {
-    margin: 0;
-}
-
 /*********************************************
  * MAIN SLIDE
  *********************************************/
@@ -111,6 +107,38 @@
     width: 48%;
 }
 
-.reveal pre {
-    margin: 0;
+/*********************************************
+ * SECOND SLIDE
+ *********************************************/
+
+ .reveal .second__top {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.reveal .second__list_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 48%;
+}
+
+.reveal .second__test_img {
+    min-width: 200px;
+    height: 400px;
+    background-image: url(../assets/test_results.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 3px solid #268bd2;
+    border-radius: 15px;
+}
+
+/*********************************************
+ * THIRD SLIDE
+ *********************************************/
+ 
+ .reveal .third__code {
+    width: 100%;
 }

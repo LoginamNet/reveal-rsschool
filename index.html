@@ -86,7 +86,109 @@
 									</div>
 								</div>
 							</div>
-							<span class="first__text">But You can <a href="https://lodash.com/per-method-packages">import the individual functions</a> where needed instead of the full library if the functionality isn't easy to achieve in vanilla js</span>
+							<span class="first__text">But You can <a href="https://lodash.com/per-method-packages">import the individual functions</a> where needed instead of the full library if the functionality isn't easy to achieve in vanilla js.</span>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-tex h">What's the difference?</h2>
+							<h3 class="r-fit-text h">PROS/CONS</h3>
+							<div class="second__top">
+								<div class="second__list_container">
+									<span class="colored__text">Pros</span>
+									<ul>
+										<li>Makes your code more concise</li>
+										<li>Cross-browser compatible</li>
+										<li>Good documentation</li>
+									</ul>
+								</div>
+								<div class="second__list_container">
+									<span class="colored__text">Сons</span>
+									<ul>
+										<li>Problems aren’t always easy to spot</li>
+										<li>Adding an external dependency</li>
+										<li>Plain JS can be faster</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+  					<section>
+						<div class="main">
+							<h2 class="r-fit-text h">Performance</h2>
+							<span class="first__text">Let's <a href="https://www.measurethat.net/Benchmarks/ShowResult/279017">check the performance</a> of lodash/ES6 - map, forEach, filter methods.</span>
+							<div class="second__test_img"></div>
+						</div>
+					</section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-text h">Community and ecosystem</h2>
+							<h3 class="r-fit-text h">Lodash is one of the most popular JavaScript libraries</h3>
+							<span class="first__text">This means that there is a wealth of knowledge and resources available to you as a developer, including extensive documentation, tutorials, and example code.</span>
+							<span class="first__text">Lodash also fits well into the JavaScript ecosystem, it can be used with other popular libraries and frameworks such as React, Angular, Vue, etc.</span>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-tex h">DEEPCLONE</h2>
+							<h3 class="r-fit-text h">What if our sheep is a function?</h3>
+							<span class="first__text">JavaScript does not contain separate functions for deep copying arrays or objects.</span>
+							<div class="third__code">
+								<pre><code data-trim data-noescape>
+									const arr = [1, [2], [3, [4]], 5];
+									const copyArr = JSON.parse(JSON.stringify(arr));
+
+									console.log(copyArr);
+									(4) [1, Array(1), Array(2), 5]
+								</code></pre>
+							</div>
+							<span class="first__text">But wait, <span class="colored__text">JSON.parse/stringify</span> can do it! Right?</span>
+						</div>
+					</section>
+  					<section>
+						<div class="main">
+							<h2 class="r-fit-text h">DEEPCLONE</h2>
+							<span class="first__text">Not realy...</span>
+							<div class="third__code">
+								<pre><code data-trim data-noescape>
+									const arr = [
+										undefined,
+										function() { console.log('aaa') },
+										Symbol("foo")
+									]
+									const copyArr = JSON.parse(JSON.stringify(arr));
+
+									console.log(copyArr);
+									(3) [null, null, null]
+								</code></pre>
+							</div>
+							<span class="first__text">Using this method, the source object must be <span class="colored__text">JSON-safe</span> - we do not use Date, undefined, Infinity, functions, regexps, maps, sets, or other complex types within our array/object.</span>
+						</div>
+					</section>
+					<section>
+						<div class="main">
+							<h2 class="r-fit-text h">DEEPCLONE</h2>
+							<span class="first__text"><span class="colored__text">_deepClone</span> work with all types, function and Symbol are copied by reference.</span>
+							<div class="third__code">
+								<pre><code data-trim data-noescape>
+									import cloneDeep from 'lodash.clonedeep'
+
+									const arr = [
+										undefined,
+										function() { console.log('aaa') },
+										Symbol("foo")
+									]
+									const copyArr = cloneDeep(arr);
+
+									console.log(copyArr);
+									(3) [undefined, ƒ, Symbol(foo)]
+								</code></pre>
+							</div>
+							<span class="first__text">You can study the <a href="https://github.com/lodash/lodash/blob/4.17.15/lodash.js#L2620">source code</a> of the deep copy function.</span>
 						</div>
 					</section>
 				</section>
