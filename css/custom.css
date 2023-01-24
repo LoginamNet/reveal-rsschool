@@ -9,6 +9,10 @@
     color: #002b36;
 }
 
+.reveal li::marker {
+    color: #FFA500;
+}
+
 .reveal .main {
     font-size: 36px;
 }
@@ -183,3 +187,43 @@
 .reveal .fifth__throttle_img {
     background-image: url(../assets/throttling.png);
 }
+
+/*********************************************
+ * SIXTH SLIDE
+ *********************************************/
+
+ .reveal .sixth__images_container,
+ .reveal .sixth__code_container {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .reveal .sixth__images_container {
+    margin-top: 30px;
+ }
+
+ .reveal .sixth__snake_img,
+ .reveal .sixth__kebab_img,
+ .reveal .sixth__camel_img {
+    width: 33%;
+    height: 100px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+ }
+
+ .reveal .sixth__snake_img {
+    background-image: url(../assets/snake.svg);
+ }
+
+ .reveal .sixth__kebab_img {
+    background-image: url(../assets/kebab.svg);
+ }
+
+ .reveal .sixth__camel_img {
+    background-image: url(../assets/camel.svg);
+ }
+
+ .reveal .sixth__code {
+    width:33%;
+ }
